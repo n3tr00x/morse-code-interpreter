@@ -3,6 +3,7 @@ import { CONFIG } from './constants/config';
 import { Header } from './components/Header';
 import { Button } from './components/Button';
 import { MorseCode } from './components/MorseCode';
+import { Interpreter } from './components/Interpreter';
 
 export function App() {
 	const [morseCode, setMorseCode] = useState('');
@@ -42,6 +43,7 @@ export function App() {
 				<Header />
 				<div className="io-container">
 					<MorseCode code={morseCode} />
+					<Interpreter code={morseCode} />
 				</div>
 				<div className="buttons">
 					<Button onMouseDown={addSpace} onMouseUp={addMorseChar}>
