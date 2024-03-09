@@ -51,6 +51,9 @@ export function App() {
 			case 'ArrowDown':
 				addSpace();
 				break;
+			case 'Enter':
+				resetApplication();
+				break;
 			default:
 				console.error('error.');
 				break;
@@ -71,6 +74,11 @@ export function App() {
 		setIsKeyPressed(false);
 	};
 
+	const resetApplication = () => {
+		setMorseCode('');
+		setLastTimePressed(undefined);
+	};
+
 	return (
 		<main className="main" tabIndex={0} onKeyDown={handleKeyDown} onKeyUp={handleKeyUp}>
 			<div className="container">
@@ -83,6 +91,7 @@ export function App() {
 					<Button onMouseDown={addSpace} onMouseUp={addMorseChar}>
 						Transmit
 					</Button>
+					<Button onMouseDown={resetApplication}>Clear</Button>
 				</div>
 			</div>
 		</main>
