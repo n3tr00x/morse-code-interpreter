@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { KeyboardEvent, useState } from 'react';
 import { CONFIG } from './constants/config';
 import { Header } from './components/Header';
 import { Button } from './components/Button';
@@ -8,6 +8,7 @@ import { Interpreter } from './components/Interpreter';
 export function App() {
 	const [morseCode, setMorseCode] = useState('');
 	const [lastTimePressed, setLastTimePressed] = useState<number | undefined>(undefined);
+	const [isKeyPressed, setIsKeyPressed] = useState(false);
 
 	const addMorseChar = () => {
 		const now = Date.now();
@@ -37,8 +38,41 @@ export function App() {
 		}
 	};
 
+	const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+		if (isKeyPressed) {
+			return;
+		}
+
+		setIsKeyPressed(true);
+
+		switch (event.code) {
+			case 'Space':
+			case 'ArrowUp':
+			case 'ArrowDown':
+				addSpace();
+				break;
+			default:
+				console.error('error.');
+				break;
+		}
+	};
+
+	const handleKeyUp = (event: KeyboardEvent<HTMLDivElement>) => {
+		switch (event.code) {
+			case 'Space':
+			case 'ArrowUp':
+			case 'ArrowDown':
+				addMorseChar();
+				break;
+			default:
+				console.error('error');
+		}
+
+		setIsKeyPressed(false);
+	};
+
 	return (
-		<main className="main">
+		<main className="main" tabIndex={0} onKeyDown={handleKeyDown} onKeyUp={handleKeyUp}>
 			<div className="container">
 				<Header />
 				<div className="io-container">
