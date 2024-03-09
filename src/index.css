@@ -60,6 +60,16 @@ body {
 	text-align: center;
 }
 
+.interpreter {
+	padding: 12px;
+	width: 100%;
+	background-color: var(--color-background);
+}
+
+.interpreter h2 {
+	text-align: center;
+}
+
 .buttons {
 	display: flex;
 	justify-content: center;
