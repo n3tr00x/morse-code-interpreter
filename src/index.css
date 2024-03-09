@@ -44,6 +44,42 @@ body {
 	font-size: 28px;
 }
 
+.io-container {
+	display: flex;
+	flex-direction: column;
+	margin-block: 24px;
+}
+
+.morse-code {
+	padding: 12px;
+	width: 100%;
+	background-color: var(--color-background);
+}
+
+.morse-code h2 {
+	text-align: center;
+}
+
+.buttons {
+	display: flex;
+	justify-content: center;
+	gap: 12px;
+}
+
+.button {
+	padding: 16px 36px;
+	background-color: var(--color-cyan);
+	color: var(--color-background);
+	box-shadow: var(--shadow);
+	border: 0;
+	border-radius: var(--rounded);
+	cursor: pointer;
+}
+
+.button:active {
+	box-shadow: var(--shadow-xl);
+}
+
 @media (min-width: 640px) {
 	main {
 		align-items: center;
@@ -55,6 +91,10 @@ body {
 }
 
 @media (min-width: 1024px) {
+	.io-container {
+		flex-direction: row;
+	}
+
 	.container {
 		max-width: 800px;
 	}
