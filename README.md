@@ -30,7 +30,7 @@ To install and run the application locally, follow the steps below:
 4. Run the application:
 
     ```bash
-    npm start
+    npm run dev
     ```
 
 The application will be accessible at http://localhost:5173.
